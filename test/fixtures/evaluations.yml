@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  test_id: 1
+  started_at: 2018-01-23 19:44:58
+  finished_at: 2018-01-23 19:44:58
+  percent: 9.99
+
+two:
+  user_id: 1
+  test_id: 1
+  started_at: 2018-01-23 19:44:58
+  finished_at: 2018-01-23 19:44:58
+  percent: 9.99
