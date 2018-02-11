@@ -1,4 +1,4 @@
-class Evaluation < ApplicationRecord
+class TestEvaluation < ApplicationRecord
   belongs_to :user
   belongs_to :test
 end
