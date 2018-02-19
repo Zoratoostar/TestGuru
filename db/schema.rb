@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211081204) do
+ActiveRecord::Schema.define(version: 20180218144544) do
 
-  create_table "answers", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "question_id", null: false
-    t.string "given_option"
+  create_table "answer_options", force: :cascade do |t|
+    t.string "title"
+    t.string "body", null: false
+    t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "correctness"
+    t.boolean "correct", default: false, null: false
+    t.index ["question_id"], name: "index_answer_options_on_question_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -29,7 +30,6 @@ ActiveRecord::Schema.define(version: 20180211081204) do
 
   create_table "questions", force: :cascade do |t|
     t.text "body", null: false
-    t.string "right_option", default: "A"
     t.integer "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20180211081204) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", default: 3, null: false
+    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end
 
   create_table "users", force: :cascade do |t|
