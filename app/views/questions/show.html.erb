@@ -1,0 +1,9 @@
+<h3>Question</h3>
+
+<p>
+  Text: <%= Question.where(id: params[:id]).pluck(:body).join %>
+</p>
+
+<form action="/questions/<%= params[:id] %>" method="delete">
+  <input type="submit" value="Delete">
+</form>

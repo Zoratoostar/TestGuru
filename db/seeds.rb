@@ -116,27 +116,27 @@ Question.create!([
     test_id: id(Test, title: 'Контроллеры в Ruby on Rails') }
 ])
 
-Answer.create!([
-  { user_id: id(User, email: 'alexey.mekhonoshin@mail.org'),
-    question_id: id(Question, body: 'Опишите соглашение об именовании контроллеров'),
-    given_option: 'A',
-    correctness: true },
-
-  { user_id: id(User, email: 'alexey.mekhonoshin@mail.org'),
-    question_id: id(Question, body: 'Что означают теги HTML, HEAD, BODY?'),
-    given_option: 'B',
-    correctness: false },
-
-  { user_id: id(User, email: 'svetlana.ivanova@mail.org'),
-    question_id: id(Question, body: 'Кто не является представителем подводного мира оз.Байкал: нерпа, нарвал, осётр'),
-    given_option: 'B',
-    correctness: false },
-
-  { user_id: id(User, email: 'svetlana.ivanova@mail.org'),
-    question_id: id(Question, body: 'Задайте цвет тексту: <span>Я - Текст</span>'),
-    given_option: 'A',
-    correctness: true }
-])
+# Answer.create!([
+#   { user_id: id(User, email: 'alexey.mekhonoshin@mail.org'),
+#     question_id: id(Question, body: 'Опишите соглашение об именовании контроллеров'),
+#     given_option: 'A',
+#     correctness: true },
+#
+#   { user_id: id(User, email: 'alexey.mekhonoshin@mail.org'),
+#     question_id: id(Question, body: 'Что означают теги HTML, HEAD, BODY?'),
+#     given_option: 'B',
+#     correctness: false },
+#
+#   { user_id: id(User, email: 'svetlana.ivanova@mail.org'),
+#     question_id: id(Question, body: 'Кто не является представителем подводного мира оз.Байкал: нерпа, нарвал, осётр'),
+#     given_option: 'B',
+#     correctness: false },
+#
+#   { user_id: id(User, email: 'svetlana.ivanova@mail.org'),
+#     question_id: id(Question, body: 'Задайте цвет тексту: <span>Я - Текст</span>'),
+#     given_option: 'A',
+#     correctness: true }
+# ])
 
 Evaluation.create!([
   { user_id: id(User, email: 'alexey.mekhonoshin@mail.org'),
