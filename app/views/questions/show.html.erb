@@ -1,0 +1,9 @@
+<h3>Question</h3>
+
+<p>
+  Text: <%= Question.where(id: params[:id]).pluck(:body).join %>
+</p>
+
+<%= link_to 'Delete this question!',
+            "/questions/#{params[:id]}",
+            method: :delete, data: { confirm: "Are you sure?" } %>
