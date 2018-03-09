@@ -14,4 +14,17 @@
 </p>
 
 <%= link_to 'Edit', edit_test_path(@test) %> |
-<%= link_to 'Back', tests_path %>
+<%= link_to 'Tests', tests_path %>
+
+<p><strong>Questions:</strong></p>
+<ol>
+  <% @questions.each do |question| %>
+    <li>
+      <%= question.body %>
+      <%= link_to 'Show', question_path(question) %> |
+      <%= link_to 'Edit', edit_question_path(question) %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to 'Add question', new_test_question_path(@test) %>

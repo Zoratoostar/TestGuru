@@ -1,0 +1,16 @@
+<br><%= link_to 'Back to Question', question_path(@question) %>
+
+<p><strong>Answer options</strong></p>
+
+<table>
+  <tr>
+    <th>Prefix</th>
+    <th>Text</th>
+    <th>Right</th>
+    <th colspan="2">Actions</th>
+  </tr>
+
+  <%= render @answer_options %>
+</table>
+
+<p><%= link_to 'New option', new_question_answer_option_path(params[:question_id]) %></p>

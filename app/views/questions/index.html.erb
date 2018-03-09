@@ -1,0 +1,10 @@
+<p><strong>Questions:</strong></p>
+<ol>
+  <% @questions.each do |question| %>
+    <li><p>
+      <%= question.body %>
+      <%= link_to 'Show', question_path(question) %> |
+      <%= link_to 'Edit', edit_question_path(question) %>
+    </p></li>
+  <% end %>
+</ol>
