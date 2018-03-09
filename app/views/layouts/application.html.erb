@@ -10,5 +10,16 @@
 
   <body>
     <%= yield %>
+    <footer>
+      <p>
+        <%= current_year %>
+        Зоркальцев Евгений
+        <%= github_url('Zoratoostar', 'TestGuru') %>
+      </p>
+      <p>
+        Cоздание, изменение и прохождение тестов.
+        <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 'http://thinknetica.com' %>
+      </p>
+    </footer>
   </body>
 </html>
