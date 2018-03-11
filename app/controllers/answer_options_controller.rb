@@ -11,15 +11,14 @@ class AnswerOptionsController < ApplicationController
   def show; end
 
   def new
-    @answer_option = AnswerOption.new
-    # @question = Question.find(params[:question_id])
+    @answer_option = @question.answer_options.new
   end
 
   def edit; end
 
   def create
-    @answer_option = AnswerOption.new(answer_option_params)
-    if @answer_option.save
+    @answer_option = @question.answer_options.new
+    if @answer_option.update(answer_option_params)
       redirect_to question_path(@question)
     else
       render :new
@@ -59,8 +58,6 @@ class AnswerOptionsController < ApplicationController
   end
 
   def answer_option_params
-    attributes = params.require(:answer_option)
-    attributes[:question_id] = params[:question_id] if params[:question_id]
-    attributes.permit(:title, :body, :correct, :question_id)
+    params.require(:answer_option).permit(:title, :body, :correct)
   end
 end

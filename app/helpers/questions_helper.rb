@@ -1,11 +1,11 @@
 module QuestionsHelper
 
-  def question_header(test_id)
-    header = "#{Test.find(test_id).title} Question"
-    reqfp = request.fullpath
-    header = "Create New #{header}" if reqfp.include?('new')
-    header = "Edit #{header}" if reqfp.include?('edit')
-    header
+  def question_header(question)
+    if question.persisted?
+      "Edit #{Test.find(question.test_id).title} Question"
+    else
+      "Create New #{Test.find(params[:test_id]).title} Question"
+    end
   end
 
 end
