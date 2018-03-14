@@ -5,7 +5,7 @@ class AnswerOption < ApplicationRecord
 
   scope :right_options, -> { where(correct: true) }
 
-  validate :validate_options_number
+  validate :validate_options_number, on: :create
 
   private
 

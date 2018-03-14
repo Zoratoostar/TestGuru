@@ -1,0 +1,21 @@
+
+<%= form_with model: [@question, @answer_option], local: true do |form| %>
+  <%= render 'shared/errors', resource: @answer_option %>
+
+  <p>
+    <%= form.label :title %>:
+    <%= form.text_field :title, id: :answer_option_title %>
+  </p>
+
+  <p>
+    <%= form.label :body, "Text" %><br>
+    <%= form.text_area :body, id: :answer_option_body, cols: 25, rows: 5 %>
+  </p>
+
+  <p>
+    <%= form.label :correct, 'Right option:' %>
+    <%= form.select :correct, [:false, :true] %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>

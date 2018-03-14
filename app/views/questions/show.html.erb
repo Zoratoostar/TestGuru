@@ -1,9 +1,26 @@
 <h3>Question</h3>
 
 <p>
-  Text: <%= Question.where(id: params[:id]).pluck(:body).join %>
+  <strong>Text:</strong>
+  <%= @question.body %>
 </p>
 
-<%= link_to 'Delete this question!',
-            "/questions/#{params[:id]}",
-            method: :delete, data: { confirm: "Are you sure?" } %>
+<p><strong>Answer Options:</strong></p>
+<ol>
+  <% @answer_options.each do |option| %>
+    <li>
+      <%= option.body %>
+      <%= link_to 'Show', answer_option_path(option) %> |
+      <%= link_to 'Edit', edit_answer_option_path(option) %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to 'Add new option', new_question_answer_option_path(@question) %> |
+<%= link_to 'Show in detail', question_answer_options_path(@question) %> |
+<%= link_to 'Back to Test', test_path(@question.test_id) %>
+
+<p><%= link_to 'Delete this question!',
+                question_path(@question),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %></p>

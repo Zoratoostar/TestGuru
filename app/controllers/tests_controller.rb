@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: :show
+  before_action :find_test, only: [:show, :edit, :update, :destroy]
   around_action :log_execute_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
@@ -11,7 +11,6 @@ class TestsController < ApplicationController
     # render inline: '<p>My favorite lang is: <%= %[ybuR].reverse %>!</p>'
     # render file: 'public/about', layout: false
     # head :no_content
-    # byebug
     # render inline: '<%= console %>'
 
     # logger.info(self.object_id)
@@ -22,27 +21,43 @@ class TestsController < ApplicationController
     #   format.html { render plain: 'All tests' }
     #   format.json { render json: { tests: Test.all } }
     # end
-
-    result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    render plain: result.join("\n")
-
+    @tests = Test.all
   end
 
   def show
-    render inline: '<%= @test.title %>'
+    # render inline: '<%= @test.title %>'
+    # @test = Test.find(params[:id])
+    @questions = @test.questions
   end
 
   def new
     # render file: 'app/views/tests/new.html.erb', layout: false
+    @test = Test.new
   end
+
+  def edit; end
 
   def create
-    render plain: "Parameters: #{params.inspect}"
+    # render plain: "Parameters: #{params.inspect}"
+    @test = Test.new(test_params)
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
   end
 
-  def search
-    result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    render plain: result.join("\n")
+  def update
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @test.destroy
+    redirect_to tests_path
   end
 
   private
@@ -56,10 +71,14 @@ class TestsController < ApplicationController
     yield
     finish = Time.now - start
 
-    logger.info("Execution time: #{finish * 1000}ms")
+    logger.info("Execution time: #{finish * 1000}ms; object_id: #{object_id}")
   end
 
   def rescue_with_test_not_found
     render plain: 'Test was not found'
+  end
+
+  def test_params
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end
