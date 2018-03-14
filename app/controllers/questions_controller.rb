@@ -11,14 +11,16 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = @test.questions.new
+    @question = Question.new
   end
 
   def edit; end
 
   def create
-    @question = @test.questions.new
-    if @question.update(question_params)
+    @question = Question.new(question_params)
+    if @question.save
+    # @question = @test.questions.new
+    # if @question.update(question_params)
       redirect_to test_path(@test)
     else
       render :new
@@ -58,6 +60,9 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body)
+    # params.require(:question).permit(:body)
+    attributes = params.require(:question)
+    attributes[:test_id] = params[:test_id] if params[:test_id]
+    attributes.permit(:body, :test_id)
   end
 end

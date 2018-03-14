@@ -2,7 +2,7 @@ class AnswerOptionsController < ApplicationController
 
   before_action :find_option, only: [:show, :edit, :update, :destroy]
   before_action :find_question_options, only: [:index]
-  before_action :dummy_question, only: [:index, :new, :create]
+  before_action :dummy_question, only: [:index, :create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_option_not_found
 
@@ -11,7 +11,9 @@ class AnswerOptionsController < ApplicationController
   def show; end
 
   def new
-    @answer_option = @question.answer_options.new
+    @question = Question.find(params[:question_id])
+    # @answer_option = @question.answer_options.new
+    @answer_option = AnswerOption.new
   end
 
   def edit; end

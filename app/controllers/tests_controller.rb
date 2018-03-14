@@ -24,11 +24,7 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def show
-    # render inline: '<%= @test.title %>'
-    # @test = Test.find(params[:id])
-    @questions = @test.questions
-  end
+  def show; end
 
   def new
     # render file: 'app/views/tests/new.html.erb', layout: false
