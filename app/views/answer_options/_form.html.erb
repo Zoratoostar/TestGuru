@@ -3,18 +3,18 @@
   <%= render 'shared/errors', resource: @answer_option %>
 
   <p>
-    <%= form.label :title %>:
+    <%= form.label :title %><br>
     <%= form.text_field :title, id: :answer_option_title %>
   </p>
 
   <p>
-    <%= form.label :body, "Text" %><br>
+    <%= form.label :body, 'Text' %><br>
     <%= form.text_area :body, id: :answer_option_body, cols: 25, rows: 5 %>
   </p>
 
   <p>
-    <%= form.label :correct, 'Right option:' %>
-    <%= form.select :correct, [:false, :true] %>
+    <!-- <%= form.label :correct, 'Right' %> -->
+    <%= form.select :correct, [['wrong', :false], ['right', :true]] %>
   </p>
 
   <p><%= form.submit %></p>

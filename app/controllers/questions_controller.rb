@@ -1,7 +1,6 @@
 class QuestionsController < ApplicationController
 
   before_action :find_question, only: [:show, :edit, :update, :destroy]
-  # before_action :find_test_questions, only: [:index]
   before_action :dummy_test, only: [:new, :create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -17,10 +16,10 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def create
-    @question = Question.new(question_params)
-    if @question.save
-    # @question = @test.questions.new
-    # if @question.update(question_params)
+    # @question = Question.new(question_params)
+    # if @question.save
+    @question = @test.questions.new
+    if @question.update(question_params)
       redirect_to test_path(@test)
     else
       render :new
@@ -47,10 +46,6 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  # def find_test_questions
-  #   @questions = Test.find(params[:test_id]).questions
-  # end
-
   def dummy_test
     @test = Test.new(id: params[:test_id])
   end
@@ -60,9 +55,9 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    # params.require(:question).permit(:body)
-    attributes = params.require(:question)
-    attributes[:test_id] = params[:test_id] if params[:test_id]
-    attributes.permit(:body, :test_id)
+    params.require(:question).permit(:body)
+    # attributes = params.require(:question)
+    # attributes[:test_id] = params[:test_id] if params[:test_id]
+    # attributes.permit(:body, :test_id)
   end
 end

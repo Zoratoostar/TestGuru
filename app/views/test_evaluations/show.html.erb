@@ -1,0 +1,19 @@
+<h2>Pass the <%= @test_eval.test.title %> Test</h2>
+
+<strong>
+  <p>Quesitons amount: <%= @test_eval.test.questions.count %></p>
+  <p>Question №<%= @test_eval.question_number %></p>
+  <p><%= @test_eval.current_question.body %></p>
+</strong>
+
+<%= form_with url: test_evaluation_path(@test_eval), local: true, method: :put do |form| %>
+  <%= form.collection_check_boxes :option_ids, @test_eval.current_question.answer_options,
+                                  :id, :body, include_hidden: false do |b| %>
+    <p>
+      <%= b.check_box id: "option_ids_#{b.object.id}" %>
+      <%= b.label %>
+    </p>
+  <% end %>
+
+  <p><%= form.submit 'Next' %></p>
+<% end %>

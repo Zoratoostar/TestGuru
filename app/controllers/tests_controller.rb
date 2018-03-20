@@ -1,7 +1,8 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: [:show, :edit, :update, :destroy]
-  around_action :log_execute_time
+  before_action :find_test, only: [:show, :edit, :update, :destroy, :start]
+  before_action :set_user, only: :start
+  # around_action :log_execute_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -56,10 +57,19 @@ class TestsController < ApplicationController
     redirect_to tests_path
   end
 
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_evaluation(@test)
+  end
+
   private
 
   def find_test
     @test = Test.find(params[:id])
+  end
+
+  def set_user
+    @user = User.first
   end
 
   def log_execute_time
