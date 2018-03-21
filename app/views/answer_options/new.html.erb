@@ -1,5 +1,8 @@
 <h2>Create New Answer Option</h2>
 
-<%= render 'form' %>
+<p>
+  <%= @question.body %>
+</p>
 
-<br><%= link_to 'Back to Question', question_path(@question) %>
+<%= render 'form' %><br>
+<%= link_to 'Back to Question', question_path(@question) %>

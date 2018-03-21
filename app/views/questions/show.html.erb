@@ -1,15 +1,15 @@
-<h3>Question</h3>
+<h3><%= @question.test.title %> Question</h3>
 
 <p>
   <strong>Text:</strong>
   <%= @question.body %>
 </p>
 
-<p><strong>Answer Options:</strong></p>
+<p><strong>Answer options:</strong></p>
 <ol>
   <% @answer_options.each do |option| %>
     <li>
-      <%= option.body %>
+      <%= option.body %><br>
       <%= link_to 'Show', answer_option_path(option) %> |
       <%= link_to 'Edit', edit_answer_option_path(option) %>
     </li>
