@@ -1,10 +1,20 @@
 class TestsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: :wrap
   before_action :find_test, only: [:show, :edit, :update, :destroy, :start]
   before_action :set_user, only: :start
   # around_action :log_execute_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+
+  def wrap
+    if logged_in?
+      @tests = Test.all
+      return render :index
+    end
+
+    @categories = Category.all
+  end
 
   def index
     # render html: '<h1>All tests</h1>'.html_safe
@@ -69,7 +79,7 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.first
+    @user = current_user
   end
 
   def log_execute_time

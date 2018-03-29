@@ -1,0 +1,12 @@
+<h1>TestGuru</h1>
+
+<p>Project have tests of the following categories:</p>
+
+<ul>
+  <% @categories.each do |category| %>
+    <li><%= category.title %></li>
+  <% end %>
+</ul><br>
+
+<p><%= link_to 'Sign up (register)', signup_path %></p>
+<p><%= link_to 'Sign in (login)', login_path %></p><br>

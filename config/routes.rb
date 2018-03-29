@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'tests#wrap'
 
-  root 'tests#index'
-
-  get 'users/new'
+  # get 'users/new'
+  # get 'sessions/new'
   get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
+  post :close_session, to: 'sessions#close'
 
   resources :users, only: :create
+  resources :sessions, only: :create
 
   resources :tests do
     resources :questions, shallow: true, except: :index do
@@ -25,9 +28,6 @@ Rails.application.routes.draw do
   end
 
   # get '/tests/:category/:title', to: 'tests#search', lvl: 0
-
   # get '/tests/:id/start', to: 'tests#start'
-  #
   # match '/tests/:id', to: 'tests#create', via: %i[post put]
-
 end
