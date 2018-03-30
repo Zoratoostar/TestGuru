@@ -1,0 +1,10 @@
+
+<p class = 'nav user'><%= link_to 'Test Guru', tests_path %></p>
+<% if logged_in? %>
+  <p class = 'nav user'>Welcome, Comrade <b><%= current_user.name %></b></p>
+  <p class = 'nav user'><%= link_to 'Logout', close_session_path,
+                                    method: :post,
+                                    data: { confirm: "Sign out ?" } %></p>
+<% else %>
+  <p class = 'nav user'><%= link_to 'Sign Up', signup_path %></p>
+<% end %>

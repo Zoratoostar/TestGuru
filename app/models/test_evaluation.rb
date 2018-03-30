@@ -3,8 +3,8 @@ class TestEvaluation < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_first_question, on: :create
-  before_create :before_create_set_started_at
+  # before_validation :before_validation_set_first_question, on: :create
+  before_create :before_create_set_first_question
 
   def accept!(answer_option_ids)
     self.correct_answers += 1 if correct_answer?(answer_option_ids)
@@ -23,12 +23,9 @@ class TestEvaluation < ApplicationRecord
 
   private
 
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
+  def before_create_set_first_question
+    self.current_question = test.questions.first
     self.question_number = 1
-  end
-
-  def before_create_set_started_at
     self.started_at = created_at
   end
 
