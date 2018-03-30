@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
+      (cook_path = cookies[:path]) && (return redirect_to cook_path)
       redirect_to tests_path
     else
       flash.now[:alert] = 'Wrong email or password was entered'

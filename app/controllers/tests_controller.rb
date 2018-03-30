@@ -2,7 +2,6 @@ class TestsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: :wrap
   before_action :find_test, only: [:show, :edit, :update, :destroy, :start]
-  before_action :set_user, only: :start
   # around_action :log_execute_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
@@ -68,18 +67,14 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.test_evaluation(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_evaluation(@test)
   end
 
   private
 
   def find_test
     @test = Test.find(params[:id])
-  end
-
-  def set_user
-    @user = current_user
   end
 
   def log_execute_time

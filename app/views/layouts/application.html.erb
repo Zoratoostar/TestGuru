@@ -9,12 +9,9 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p class = 'nav user'>Welcome, Comrade <b><%= current_user.name %></b></p>
-      <p class = 'nav user'><%= link_to 'Logout', close_session_path,
-                                        method: :post,
-                                        data: { confirm: "Sign out ?" } %></p>
-    <% end %>
+    <%= render 'shared/nav' %>
+
+    <%= flash_messages %>
 
     <%= yield %>
 
