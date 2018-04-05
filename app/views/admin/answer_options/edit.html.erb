@@ -1,0 +1,8 @@
+<h2>Edit Answer Option</h2>
+
+<p>
+  <%= @answer_option.question.body %>
+</p>
+
+<%= render 'form' %><br>
+<%= link_to 'Back to Question', admin_question_path(@answer_option.question) %>

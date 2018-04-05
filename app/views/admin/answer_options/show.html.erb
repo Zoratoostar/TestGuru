@@ -1,0 +1,22 @@
+<%= link_to 'Back to Question', admin_question_path(@answer_option.question) %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @answer_option.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @answer_option.body %>
+</p>
+
+<p>
+  <strong>Right:</strong>
+  <%= @answer_option.correct %>
+</p>
+
+<%= link_to 'Edit', edit_admin_answer_option_path(@answer_option) %> |
+<%= link_to 'Delete',
+            admin_answer_option_path(@answer_option),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>

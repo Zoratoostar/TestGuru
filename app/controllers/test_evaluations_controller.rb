@@ -8,7 +8,9 @@ class TestEvaluationsController < ApplicationController
 
   def update
     @test_eval.accept!(params[:option_ids])
+
     if @test_eval.completed?
+      TestsMailer.completed_test(@test_eval).deliver_now
       redirect_to result_test_evaluation_path(@test_eval)
     else
       render :show
