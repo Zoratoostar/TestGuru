@@ -8,11 +8,7 @@ class TestsController < ApplicationController
   def wrap
     if user_signed_in?
       @tests = Test.all
-      if current_user.type == 'Admin'
-        return redirect_to admin_tests_path
-      else
-        return render :index
-      end
+      return render :index
     end
 
     @categories = Category.all

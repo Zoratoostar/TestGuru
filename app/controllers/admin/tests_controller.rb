@@ -6,6 +6,8 @@ class Admin::TestsController < Admin::BaseController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
+    @tests = Test.all
+
     # render html: '<h1>All tests</h1>'.html_safe
     # render json: { tests: Test.all }
     # render inline: '<p>My favorite lang is: <%= %[ybuR].reverse %>!</p>'
@@ -19,21 +21,18 @@ class Admin::TestsController < Admin::BaseController
     #   format.html { render plain: 'All tests' }
     #   format.json { render json: { tests: Test.all } }
     # end
-    @tests = Test.all
   end
 
   def show; end
 
   def new
-    # render file: 'app/views/tests/new.html.erb', layout: false
     @test = Test.new
   end
 
   def edit; end
 
   def create
-    @test = Test.new(test_params)
-    @test.user_id = current_user.id
+    @test = current_user.authored_tests.new(test_params)
     if @test.save
       redirect_to admin_test_path(@test)
     else
