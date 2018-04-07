@@ -1,0 +1,13 @@
+
+<tr>
+  <td><%= answer_option.title %></td>
+  <td><%= answer_option.body %></td>
+  <td><%= answer_option.correct %></td>
+  <td><%= link_to 'Edit', edit_admin_answer_option_path(answer_option) %></td>
+  <td>
+    <%= link_to 'Delete',
+                admin_answer_option_path(answer_option),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

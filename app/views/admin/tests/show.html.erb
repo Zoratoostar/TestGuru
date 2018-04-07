@@ -1,0 +1,25 @@
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @test.level %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @test.category&.title %>
+</p>
+
+<%= link_to 'Edit', edit_admin_test_path(@test) %> |
+<%= link_to 'Tests', admin_tests_path %>
+
+<p><strong>Questions:</strong></p>
+<ol>
+  <%= render @test.questions %>
+  <%#= render partial: 'questions/question', collection: @test.questions %>
+</ol>
+
+<%= link_to 'Add question', new_admin_test_question_path(@test) %>

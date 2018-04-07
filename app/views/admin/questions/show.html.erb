@@ -1,0 +1,28 @@
+<h3><%= @question.test.title %> Question</h3>
+
+<p>
+  <strong>Text:</strong>
+  <%= @question.body %>
+  <br>
+  <%= link_to 'Edit text', edit_admin_question_path(@question) %>
+</p>
+
+<p><strong>Answer options:</strong></p>
+<ol>
+  <% @answer_options.each do |option| %>
+    <li>
+      <%= option.body %><br>
+      <%= link_to 'Show', admin_answer_option_path(option) %> |
+      <%= link_to 'Edit', edit_admin_answer_option_path(option) %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to 'Add new option', new_admin_question_answer_option_path(@question) %> |
+<%= link_to 'Show in detail', admin_question_answer_options_path(@question) %> |
+<%= link_to 'Back to Test', admin_test_path(@question.test_id) %>
+
+<p><%= link_to 'Delete this question!',
+                admin_question_path(@question),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %></p>
