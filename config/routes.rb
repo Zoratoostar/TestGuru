@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'tests#wrap'
+  root 'tests#entry'
 
   devise_for :users, path: :goorus, path_names: { sign_in: :login, sign_out: :logout },
              controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }

@@ -32,7 +32,7 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    return admin_tests_path if current_user.is_a?(Admin)
+    return admin_tests_path if current_user.admin?
     super
   end
 end

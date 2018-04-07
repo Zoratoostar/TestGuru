@@ -1,11 +1,11 @@
 class TestsController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: :wrap
+  skip_before_action :authenticate_user!, only: :entry
   before_action :find_test, only: :start
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
-  def wrap
+  def entry
     if user_signed_in?
       @tests = Test.all
       return render :index

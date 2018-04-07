@@ -3,7 +3,6 @@ class TestEvaluation < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  # before_validation :before_validation_set_first_question, on: :create
   before_create :before_create_set_first_question
 
   def accept!(answer_option_ids)
@@ -30,10 +29,6 @@ class TestEvaluation < ApplicationRecord
   end
 
   def correct_answer?(answer_option_ids)
-    # correct_options_count = correct_options.count
-    # return true if answer_option_ids.nil? && correct_options_count.zero?
-    # (correct_options_count == correct_options.where(id: answer_option_ids).count) &&
-    # correct_options_count == answer_option_ids.count
     return true if answer_option_ids.nil? && correct_options.count.zero?
     current_question.answer_options.right_options.ids.sort == answer_option_ids.map(&:to_i).sort
   end
