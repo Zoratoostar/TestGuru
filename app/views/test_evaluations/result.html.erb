@@ -1,11 +1,11 @@
-<h2>The <%= @test_eval.test.title %> test was completed with result:</h2>
+<h2><%= t('.header', title: @test_eval.test.title) %></h2>
 
-<% if @test_eval.percent >= 85 %>
+<% if @test_eval.success? %>
   <h1 class='green'> <%= @test_eval.percent.to_i %>% </h1>
-  <h2> Test passed! </h2>
+  <h2><%= t('.success') %></h2>
 <% else %>
   <h1 class='reddish'> <%= @test_eval.percent.to_i %>% </h1>
-  <h2> Test not passed. </h2>
+  <h2><%= t('.fail') %></h2>
 <% end %>
 
-<%= link_to 'All Tests', tests_path %>
+<%= link_to t('.tests'), tests_path %>

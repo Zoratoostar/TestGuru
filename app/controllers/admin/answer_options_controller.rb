@@ -12,7 +12,6 @@ class Admin::AnswerOptionsController < Admin::BaseController
 
   def new
     @question = Question.find(params[:question_id])
-    # @answer_option = @question.answer_options.new
     @answer_option = AnswerOption.new
   end
 
@@ -38,7 +37,7 @@ class Admin::AnswerOptionsController < Admin::BaseController
   def destroy
     @answer_option.destroy
     redirect_to admin_question_answer_options_path(@answer_option.question_id)
-    # render plain: "Answer option with id: #{params[:id]} was deleted."
+    flash[:notice] = t('was_deleted', id: params[:id])
   end
 
   private
@@ -56,7 +55,7 @@ class Admin::AnswerOptionsController < Admin::BaseController
   end
 
   def rescue_with_option_not_found
-    render plain: 'Answer option was not found'
+    render plain: t('admin.answer_options.not_found')
   end
 
   def answer_option_params

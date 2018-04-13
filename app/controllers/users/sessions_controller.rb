@@ -13,9 +13,9 @@ class Users::SessionsController < Devise::SessionsController
     super
 
     if @user.first_name || @user.last_name
-      flash[:notice] = "#{@user.first_name} #{@user.last_name}, salute!"
+      flash[:notice] = t('.salute', first_name: @user.first_name, last_name: @user.last_name)
     else
-      flash[:notice] = "Bonjour, #{@user.name}!"
+      flash[:notice] = t('.bonjour', name: @user.name)
     end
   end
 

@@ -1,8 +1,8 @@
-<h2>Edit Answer Option</h2>
+<h2><%= t('.header') %>:</h2>
 
-<p>
+<h3>
   <%= @answer_option.question.body %>
-</p>
+</h3>
 
 <%= render 'form' %><br>
-<%= link_to 'Back to Question', admin_question_path(@answer_option.question) %>
+<%= link_to t('.back'), admin_question_path(@answer_option.question) %>

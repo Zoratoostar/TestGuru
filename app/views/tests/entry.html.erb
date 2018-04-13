@@ -1,6 +1,6 @@
-<p><%= link_to 'Sign in (Login)', new_user_session_path %></p>
+<p><%= link_to t('.sign_in'), new_user_session_path %></p>
 
-<p>This project have tests of the following categories:</p>
+<p><%= t('.about') %>:</p>
 
 <ul>
   <% @categories.each do |category| %>

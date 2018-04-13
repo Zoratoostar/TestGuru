@@ -1,33 +1,132 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
 # The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
+# the default I18n backend: true, false, on, off, yes, no
 
 en:
   hello: "Hello world"
+
+  show: "Show"
+  edit: "Edit"
+  delete: "Delete"
+  confirm: "Are you sure?"
+  all_tests: "All Tests"
+  title: "Title"
+  level: "Level"
+  category: "Category"
+  test_guru: "TestGuru"
+  actions: "Actions"
+
+  layouts:
+    admin:
+      headline: "Admin Panel | TestGuru"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+
+    nav:
+      welcome: "Welcome, Comrade"
+      logout: "Logout"
+      confirm: "Sign out?"
+      sign_up: "Sign Up"
+
+  tests:
+    index:
+      header: "Tricky Tests"
+      questions: "Questions"
+    entry:
+      sign_in: "Sign in (Login)"
+      about: "This project have tests of the following categories"
+    test:
+      start: "Start"
+
+  test_evaluations:
+    show:
+      header: "Pass the \"%{title}\" Test"
+      questions_amount: "Quesitons amount: %{count}"
+      question_number: "Question №%{number}"
+      submit: "Next question"
+    result:
+      header: "The \"%{title}\" test was completed with result:"
+      success: "Test passed successfully!"
+      fail: "Test failed."
+      tests: "All Tests"
+
+  admin:
+    nav:
+      title: "TestGuru Admin Panel"
+      welcome: "Welcome,"
+      logout: "Logout"
+    base:
+      admin_required: "You are not authorized to view this page."
+    tests:
+      not_found: "Test was not found."
+      create:
+        success: "Test was successfully created."
+      index:
+        header: "Tricky Tests"
+        questions: "Questions"
+        new_test: "New Test"
+      new:
+        header: "Create New Test"
+      edit:
+        header: "Edit \"%{title}\" Test"
+      show:
+        questions: "Questions"
+        add_question: "Add Question"
+    questions:
+      not_found: "Question was not found."
+      destroy:
+        was_deleted: "Question with id = %{id} was deleted."
+      edit:
+        back: "Back to Test"
+        header: "Edit \"%{title}\" Question"
+      new:
+        back: "Back to Test"
+        header: "Create New \"%{title}\" Question"
+      show:
+        header: "\"%{title}\" Question"
+        text: "Text"
+        edit: "Edit text"
+        answers: "Answer options"
+        add_option: "Add new option"
+        in_detail: "Show in detail"
+        back: "Back to Test"
+        delete: "Delete this Question!"
+    answer_options:
+      not_found: "Answer option was not found."
+      destroy:
+        was_deleted: "Answer option with id = %{id} was deleted."
+      form:
+        wrong: "wrong"
+        right: "right"
+      index:
+        back: "Back to Question"
+        header: "Answer Options"
+        prefix: "Prefix"
+        text: "Text"
+        right: "Right"
+        new_option: "New Option"
+      edit:
+        header: "Edit Answer Option for Question"
+        back: "Back to Question"
+      new:
+        header: "Create New Answer Option for Question"
+        back: "Back to Question"
+      show:
+        back: "Back to Question"
+        prefix: "Prefix"
+        text: "Text"
+        right: "Right"
+
+  users:
+    sessions:
+      create:
+        salute: "%{first_name} %{last_name}, salute!"
+        bonjour: "Bonjour, %{name}!"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"

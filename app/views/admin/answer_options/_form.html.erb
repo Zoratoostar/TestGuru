@@ -8,13 +8,12 @@
   </p>
 
   <p>
-    <%= form.label :body, 'Text' %><br>
+    <%= form.label :body %><br>
     <%= form.text_area :body, id: :answer_option_body, cols: 25, rows: 5 %>
   </p>
 
   <p>
-    <!-- <%= form.label :correct, 'Right' %> -->
-    <%= form.select :correct, [['wrong', :false], ['right', :true]] %>
+    <%= form.select :correct, [[t('.wrong'), :false], [t('.right'), :true]] %>
   </p>
 
   <p><%= form.submit %></p>

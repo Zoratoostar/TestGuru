@@ -1,0 +1,9 @@
+
+en:
+  activerecord:
+    attributes:
+      question:
+        body: "Text"
+      answer_option:
+        title: "Prefix"
+        body: "Text"

@@ -1,16 +1,16 @@
-<!-- <p><strong>Answer Options</strong></p> -->
+<p><%= link_to t('.back'), admin_question_path(@question) %></p>
 
-<p><%= link_to 'Back to Question', admin_question_path(@question) %></p>
+<p><strong><%= t('.header') %>:</strong></p>
 
 <table>
   <tr>
-    <th>Prefix</th>
-    <th>Text</th>
-    <th>Right</th>
-    <th colspan="2">Actions</th>
+    <th><%= t('.prefix') %></th>
+    <th><%= t('.text') %></th>
+    <th><%= t('.right') %></th>
+    <th colspan="2"><%= t('actions') %></th>
   </tr>
 
   <%= render @answer_options %>
 </table>
 
-<p><%= link_to 'New option', new_admin_question_answer_option_path(params[:question_id]) %></p>
+<p><%= link_to t('.new_option'), new_admin_question_answer_option_path(params[:question_id]) %></p>

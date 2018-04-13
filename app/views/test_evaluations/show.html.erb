@@ -1,8 +1,8 @@
-<h2>Pass the <%= @test_eval.test.title %> Test</h2>
+<h2><%= t('.header', title: @test_eval.test.title) %></h2>
 
 <strong>
-  <p>Quesitons amount: <%= @test_eval.test.questions.count %></p>
-  <p>Question №<%= @test_eval.question_number %></p>
+  <p><%= t('.questions_amount', count: @test_eval.test.questions.count) %></p>
+  <p><%= t('.question_number', number: @test_eval.question_number) %></p>
   <p><%= @test_eval.current_question.body %></p>
 </strong>
 
@@ -15,5 +15,5 @@
     </p>
   <% end %>
 
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit t('.submit') %></p>
 <% end %>
