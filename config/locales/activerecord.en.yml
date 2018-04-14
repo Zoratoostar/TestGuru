@@ -3,7 +3,11 @@ en:
   activerecord:
     attributes:
       question:
-        body: "Text"
+        body: Text
       answer_option:
-        title: "Prefix"
-        body: "Text"
+        title: Prefix
+        body: Text
+      user:
+        name: Nickname
+        first_name: First Name
+        last_name: Last Name

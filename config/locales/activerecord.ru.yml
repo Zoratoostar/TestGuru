@@ -21,6 +21,10 @@ ru:
       answer_option:
         title: "Префикс"
         body: "Текст"
+      user:
+        name: "Псевдоним"
+        first_name: "Имя"
+        last_name: "Фамилия"
 
     errors:
       messages:

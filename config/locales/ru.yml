@@ -15,6 +15,11 @@ ru:
   test_guru: "ТестГуру"
   actions: "Действия"
 
+  helpers:
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Выберите вариант"
+
   layouts:
     admin:
       headline: "Панель Администратора | ТестГуру"
@@ -129,4 +134,4 @@ ru:
 
   tests_mailer:
     completed_test:
-      subject: "Вы прошли тест на TestGuru"
+      subject: "Вы прошли тест на ТестГуру!"

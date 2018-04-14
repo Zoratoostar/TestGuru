@@ -15,6 +15,11 @@ en:
   test_guru: "TestGuru"
   actions: "Actions"
 
+  helpers:
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Please select"
+
   layouts:
     admin:
       headline: "Admin Panel | TestGuru"
