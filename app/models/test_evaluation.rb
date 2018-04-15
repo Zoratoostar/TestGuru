@@ -20,6 +20,10 @@ class TestEvaluation < ApplicationRecord
     current_question.nil?
   end
 
+  def success?
+    percent >= 85
+  end
+
   private
 
   def before_create_set_first_question

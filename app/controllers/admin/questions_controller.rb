@@ -16,8 +16,6 @@ class Admin::QuestionsController < Admin::BaseController
   def edit; end
 
   def create
-    # @question = Question.new(question_params)
-    # if @question.save
     @question = @test.questions.new
     if @question.update(question_params)
       redirect_to admin_test_path(@test)
@@ -37,7 +35,7 @@ class Admin::QuestionsController < Admin::BaseController
   def destroy
     @question.destroy
     redirect_to admin_test_path(@question.test_id)
-    # render plain: "Question with id: #{params[:id]} was deleted."
+    flash[:notice] = t('.was_deleted', id: params[:id])
   end
 
   private
@@ -51,13 +49,10 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_with_question_not_found
-    render plain: 'Question was not found'
+    render plain: t('admin.questions.not_found')
   end
 
   def question_params
     params.require(:question).permit(:body)
-    # attributes = params.require(:question)
-    # attributes[:test_id] = params[:test_id] if params[:test_id]
-    # attributes.permit(:body, :test_id)
   end
 end

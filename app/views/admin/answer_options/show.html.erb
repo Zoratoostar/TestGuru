@@ -1,22 +1,22 @@
-<%= link_to 'Back to Question', admin_question_path(@answer_option.question) %>
+<%= link_to t('.back'), admin_question_path(@answer_option.question) %>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('.prefix') %>:</strong>
   <%= @answer_option.title %>
 </p>
 
 <p>
-  <strong>Text:</strong>
+  <strong><%= t('.text') %>:</strong>
   <%= @answer_option.body %>
 </p>
 
 <p>
-  <strong>Right:</strong>
+  <strong><%= t('.right') %>:</strong>
   <%= @answer_option.correct %>
 </p>
 
-<%= link_to 'Edit', edit_admin_answer_option_path(@answer_option) %> |
-<%= link_to 'Delete',
+<%= link_to t('edit'), edit_admin_answer_option_path(@answer_option) %> |
+<%= link_to t('delete'),
             admin_answer_option_path(@answer_option),
             method: :delete,
-            data: { confirm: "Are you sure?" } %>
+            data: { confirm: t('confirm') } %>

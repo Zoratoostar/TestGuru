@@ -1,0 +1,31 @@
+
+ru:
+  activerecord:
+    models:
+      test: "Тест"
+      category: "Категория"
+      question: "Вопрос"
+      answer_option: "Вариант ответа"
+      user: "Пользователь"
+      admin: "Администратор"
+      test_evaluation: "Проход Теста"
+
+    attributes:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+        user_id: "Автор"
+      question:
+        body: "Текст"
+      answer_option:
+        title: "Префикс"
+        body: "Текст"
+      user:
+        name: "Псевдоним"
+        first_name: "Имя"
+        last_name: "Фамилия"
+
+    errors:
+      messages:
+        blank: "не может быть пустым"

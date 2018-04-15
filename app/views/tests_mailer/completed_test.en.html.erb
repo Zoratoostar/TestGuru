@@ -1,0 +1,9 @@
+<h2>Hooray!</h2>
+
+<p>
+  <%= @user.name %>! You completed the <b><%= @test.title %></b> test
+  with result: <%= @test_eval.percent.to_i %> percent.
+</p>
+<p>
+  Why not to finish <%= link_to 'more', tests_url %> ?
+</p>

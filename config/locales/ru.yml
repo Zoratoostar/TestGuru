@@ -1,33 +1,137 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
 # The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
+# the default I18n backend: true, false, on, off, yes, no
 
 ru:
   hello: "Всем Привет!"
+
+  show: "Показать"
+  edit: "Редак-ть"
+  delete: "Удалить"
+  confirm: "Вы уверены?"
+  all_tests: "Все Тесты"
+  title: "Заголовок"
+  level: "Уровень"
+  category: "Категория"
+  test_guru: "ТестГуру"
+  actions: "Действия"
+
+  helpers:
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Выберите вариант"
+
+  layouts:
+    admin:
+      headline: "Панель Администратора | ТестГуру"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+    nav:
+      welcome: "Добро пожаловать,"
+      logout: "Выход"
+      confirm: "Разлогиниться ?"
+      sign_up: "Регистрация"
+
+  tests:
+    index:
+      header: "Доступные Тесты"
+      questions: "Число вопросов"
+    entry:
+      sign_in: "Вход"
+      about: "Данный проект содержит тесты следущих категорий"
+    test:
+      start: "Старт"
+
+  test_evaluations:
+    show:
+      header: "Прохождение теста \"%{title}\""
+      questions_amount: "Количество вопросов: %{count}"
+      question_number: "Вопрос №%{number}"
+      submit: "Дальше"
+    result:
+      header: "Тест \"%{title}\" завершён со следующим результатом:"
+      success: "Тест успешно пройден!"
+      fail: "Оценка - неудовлетворительно."
+      tests: "Все Тесты"
+
+  admin:
+    nav:
+      title: "Панель Администратора ТестГуру"
+      welcome: "Добро пожаловать,"
+      logout: "Выход"
+    base:
+      admin_required: "Вы не авторизованы для доступа к запрашиваемой странице."
+    tests:
+      not_found: "Тест не найден."
+      create:
+        success: "Тест успешно создан."
+      index:
+        header: "Доступные Тесты"
+        questions: "Число вопросов"
+        new_test: "Новый Тест"
+      new:
+        header: "Создание нового теста"
+      edit:
+        header: "Редактирование теста \"%{title}\""
+      show:
+        questions: "Вопросы"
+        add_question: "Добавить Вопрос"
+    questions:
+      not_found: "Вопрос не найден."
+      destroy:
+        was_deleted: "Вопрос с id = %{id} был удалён."
+      edit:
+        back: "Назад к Тесту"
+        header: "Редактирование вопроса \"%{title}\""
+      new:
+        back: "Назад к Тесту"
+        header: "Создание нового вопроса \"%{title}\""
+      show:
+        header: "Вопрос \"%{title}\""
+        text: "Текст"
+        edit: "Редак-ть текст"
+        answers: "Варианты ответа"
+        add_option: "Добавить вариант ответа"
+        in_detail: "Показать подробно"
+        back: "Назад к Тесту"
+        delete: "Удалить Вопрос!"
+    answer_options:
+      not_found: "Вариант ответа не найден."
+      destroy:
+        was_deleted: "Вариант ответа с id = %{id} удалён."
+      form:
+        wrong: "неверно"
+        right: "верно"
+      index:
+        back: "Назад к Вопросу"
+        header: "Варианты Ответа"
+        prefix: "Префикс"
+        text: "Текст"
+        right: "Верно"
+        new_option: "Новый Вариант"
+      edit:
+        header: "Редактирование варианта ответа для Вопроса"
+        back: "Назад к Вопросу"
+      new:
+        header: "Создание нового варианта ответа для Вопроса"
+        back: "Назад к Вопросу"
+      show:
+        back: "Назад к Вопросу"
+        prefix: "Префикс"
+        text: "Текст"
+        right: "Верно"
+
+  users:
+    sessions:
+      create:
+        salute: "Здравствуй, %{first_name} %{last_name}!"
+        bonjour: "Доброго времени суток, %{name}!"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы прошли тест на ТестГуру!"
