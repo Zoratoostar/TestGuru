@@ -37,7 +37,7 @@ class Admin::AnswerOptionsController < Admin::BaseController
   def destroy
     @answer_option.destroy
     redirect_to admin_question_answer_options_path(@answer_option.question_id)
-    flash[:notice] = t('was_deleted', id: params[:id])
+    flash[:notice] = t('.was_deleted', id: params[:id])
   end
 
   private
